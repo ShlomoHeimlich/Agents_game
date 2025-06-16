@@ -1,10 +1,13 @@
-﻿namespace Agents_game
+﻿using System.Collections.Generic;
+
+namespace Agents_game
 
 { 
-    abstract class Sensor
+  public  abstract class Sensor
     {
         public abstract string Type { get; }
-        public abstract void Activate();
+        public abstract void Activate(Dictionary<string, int> sensorsDict,List<string> user_sensor);
+        
   
     }
 }
