@@ -1,38 +1,32 @@
 ﻿using Agents_game;
 using System;
+using System.Collections;
 using System.Collections.Generic;
-namespace Agents_game {
+namespace Agents_game
+{
     public class Create_Sensor_basic : Sensor
     {
-        public Dictionary<string, int> sensorsDict;
         public override string Type { get; }
-
+        private static Dictionary<string, int> sensorsDict = new Dictionary<string, int>();
         public Create_Sensor_basic(string type)
         {
             this.Type = type;
         }
-        public override void Activate(List<Create_Sensor_basic> weaknesses)
+        public override void Activate(string sensor)
         {
-            sensorsDict = new Dictionary<string, int>();
-            foreach (var sensor in weaknesses)
-            {
-                string key = sensor.Type;
-
-                if (sensorsDict.ContainsKey(key))
-                    sensorsDict[key]++;
-                else
-                    sensorsDict[key] = 1;
-            }
-
+            if (sensorsDict.ContainsKey(sensor))
+                sensorsDict[sensor]++;
+            else
+                sensorsDict[sensor] = 1;
         }
-    
-    public void PrintDict()
+        public static void PrintSensorsDict()
         {
-            foreach (var pair in sensorsDict)
+            foreach (var entry in sensorsDict)
             {
-                Console.WriteLine($"Sensor: {pair.Key}, Quantity: {pair.Value}");
+                Console.WriteLine($"Sensor: {entry.Key}, Count: {entry.Value}");
             }
         }
     }
+
 }
     
