@@ -11,8 +11,7 @@ namespace Agents_game
         static void Main(string[] args)
         {
             Create_agent_junior gunior = new Create_agent_junior("shlomo");
-            
-            
+            gunior.audio.PrintDict();
 
         }
     }
