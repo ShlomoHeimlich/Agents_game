@@ -45,7 +45,6 @@
   <ItemGroup>
     <Compile Include="Create_agent_junior.cs" />
     <Compile Include="Create_Sensor_basic.cs" />
-    <Compile Include="dict_sensor.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="Agent.cs" />
     <Compile Include="Program.cs" />
