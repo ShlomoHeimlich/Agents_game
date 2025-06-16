@@ -14,7 +14,7 @@ namespace Agents_game
             int input = Convert.ToInt32(Console.ReadLine());
             if (input == 1)
             {
-
+                
 
             }
         }
