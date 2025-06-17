@@ -20,7 +20,7 @@ namespace Agents_game
                 int start = Initial_guess_total;
                 do
                 {
-                    
+                    Initial_guess_total = Create_agent_junior.SumSensorValues();
                     string[] sensor_user = new string[Initial_guess_total];
                     for (int i = 0; i < Initial_guess_total; i++)
                     {
@@ -31,11 +31,9 @@ namespace Agents_game
                     {
                         Create_agent_junior.audio.Activate(sensor_user[i], Create_agent_junior.GetSensorsDict());
                     }
-
                     Console.WriteLine($"{Create_agent_junior.audio.a}/{start}");
                     Initial_guess_total = Create_agent_junior.SumSensorValues();
                 } while (Initial_guess_total!=0);
-                
             }
         }
     }
