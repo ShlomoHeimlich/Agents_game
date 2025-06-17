@@ -33,6 +33,7 @@ namespace Agents_game
                     }
                     Console.WriteLine($"{Create_agent_junior.audio.a}/{start}");
                     Initial_guess_total = Create_agent_junior.SumSensorValues();
+                    Console.WriteLine("shlomo");
                 } while (Initial_guess_total!=0);
             }
         }
