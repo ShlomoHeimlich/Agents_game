@@ -7,6 +7,7 @@ namespace Agents_game
     class agent_junior : Create_agent
     {
         public Sensor_basic audio;
+        private List<Sensor> sensorsObjectsList = new List<Sensor>();
         private  Dictionary<string, int> sensorsDict = new Dictionary<string, int>();    
         public override string Name { get; }
         public agent_junior(string name)
@@ -23,8 +24,10 @@ namespace Agents_game
             Random rnd = new Random();
             for (int i = 0; i < 2; i++)
             {
+                
                 Sensor randomSensor = sensorsList[rnd.Next(sensorsList.Count)];
                 Weakness_Dictionary(randomSensor.Type);
+                sensorsObjectsList.Add(randomSensor);
             }
         }
         public void Weakness_Dictionary(string sensor)
@@ -46,6 +49,10 @@ namespace Agents_game
         public Dictionary<string, int> GetSensorsDict()
         {
             return sensorsDict;
+        }
+        public List<Sensor> GetsensorsObjectsLis()
+        {
+            return sensorsObjectsList;
         }
     }
 }
