@@ -18,11 +18,12 @@ namespace Agents_game
         {
             this.audio = new Sensor_basic("audio");
             Sensor_basic Viewing = new Sensor_basic("Viewing");
-            List<Sensor_basic> sensorsList = new List<Sensor_basic> {audio,Viewing};
+            pulse_sensor pulse_sensor = new pulse_sensor("myuchad");
+            List<Sensor> sensorsList = new List<Sensor> {audio,Viewing, pulse_sensor };
             Random rnd = new Random();
             for (int i = 0; i < 2; i++)
             {
-                Sensor_basic randomSensor = sensorsList[rnd.Next(sensorsList.Count)];
+                Sensor randomSensor = sensorsList[rnd.Next(sensorsList.Count)];
                 Weakness_Dictionary(randomSensor.Type);
             }
         }
