@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 namespace Agents_game
 {
     class game
@@ -21,19 +22,19 @@ namespace Agents_game
                 do
                 {
                     Initial_guess_total = Create_agent_junior.SumSensorValues();
-                    string[] sensor_user = new string[Initial_guess_total];
-                    for (int i = 0; i < Initial_guess_total; i++)
+                    List<string> list_sensor_user = new List<string>();
+                    for (int i = 0; i < start; i++)
                     {
                         Console.Write($"Enter guess {i + 1}: ");
-                        sensor_user[i] = Console.ReadLine();
+                        string user_guess = Console.ReadLine();
+                        list_sensor_user.Add(user_guess);
                     }
-                    for (int i = 0; i < sensor_user.Length; i++)
+                    for (int i = 0; i < list_sensor_user.Count; i++)
                     {
-                        Create_agent_junior.audio.Activate(sensor_user[i], Create_agent_junior.GetSensorsDict());
+                        Create_agent_junior.audio.Activate(list_sensor_user[i], Create_agent_junior.GetSensorsDict());
                     }
                     Console.WriteLine($"{Create_agent_junior.audio.a}/{start}");
                     Initial_guess_total = Create_agent_junior.SumSensorValues();
-                    Console.WriteLine("shlomo");
                 } while (Initial_guess_total!=0);
             }
         }

@@ -4,9 +4,9 @@ using System.Collections;
 using System.Collections.Generic;
 namespace Agents_game
 {
-    public class Sensor_basic : Sensor
+    public  class Sensor_basic : Sensor
     {
-        public int a { get; private set; } = 0;
+        public int a { get; protected set; } = 0;
         public override string Type { get; }
         public Sensor_basic(string type)
         {
