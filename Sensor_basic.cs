@@ -6,7 +6,7 @@ namespace Agents_game
 {
     public  class Sensor_basic : Sensor
     {
-        public int a { get; protected set; } = 0;
+        public int Number_of_successful_guesses { get;protected set; } = 0;
         public override string Type { get; }
         public Sensor_basic(string type)
         {
@@ -17,12 +17,15 @@ namespace Agents_game
             if (sensorsDict.ContainsKey(sensor) && sensorsDict[sensor] > 0)
             {
                 sensorsDict[sensor]--;
-                this.a++;
+                this.Number_of_successful_guesses++;
             }
 
         }
-        
+        public void sub_Number_of_successful_guesses()
+        {
+            this.Number_of_successful_guesses--;
+        }
+
     }
 
 }
-    

@@ -6,7 +6,7 @@ namespace Agents_game
 {
     class agent_junior : Create_agent
     {
-        public Sensor_basic audio;
+        public Sensor_basic Instance_Sensor_basic;
         private List<Sensor> sensorsObjectsList = new List<Sensor>();
         private  Dictionary<string, int> sensorsDict = new Dictionary<string, int>();    
         public override string Name { get; }
@@ -17,10 +17,10 @@ namespace Agents_game
         }
         public void list_sensor_weakness()
         {
-            this.audio = new Sensor_basic("audio");
-            Sensor_basic Viewing = new Sensor_basic("Viewing");
+            this.Instance_Sensor_basic = new Sensor_basic("audio");
+            //Sensor_basic Viewing = new Sensor_basic("Viewing");
             pulse_sensor pulse_sensor = new pulse_sensor("myuchad");
-            List<Sensor> sensorsList = new List<Sensor> {audio,Viewing, pulse_sensor };
+            List<Sensor> sensorsList = new List<Sensor> { Instance_Sensor_basic,  pulse_sensor };
             Random rnd = new Random();
             for (int i = 0; i < 2; i++)
             {

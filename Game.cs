@@ -23,17 +23,17 @@ namespace Agents_game
                 {
                     if (sensor is pulse_sensor)
                     {
-                        //pulse_sensor = true;
                         pulseSensorType = sensor.Type;
                         break;
                     }
                 }
                 int Initial_guess_total = Create_agent_junior.SumSensorValues();
                 int start = Initial_guess_total;
+                Dictionary<string, int> dict_sensor_user = new Dictionary<string, int>();
                 do
                 {
                     Initial_guess_total = Create_agent_junior.SumSensorValues();
-                    Dictionary<string, int> dict_sensor_user = new Dictionary<string, int>();
+                    
                     List<string> list_sensor_user = new List<string>();
                     for (int i = 0; i < start; i++)
                     {
@@ -47,21 +47,21 @@ namespace Agents_game
                     }
                     for (int i = 0; i < list_sensor_user.Count; i++)
                     {
-                        Create_agent_junior.audio.Activate(list_sensor_user[i], Create_agent_junior.GetSensorsDict());
+                        Create_agent_junior.Instance_Sensor_basic.Activate(list_sensor_user[i], Create_agent_junior.GetSensorsDict());
                     }
-                    Console.WriteLine($"{Create_agent_junior.audio.a}/{start}");
+                    Console.WriteLine($"{Create_agent_junior.Instance_Sensor_basic.Number_of_successful_guesses}/{start}");
                     Initial_guess_total = Create_agent_junior.SumSensorValues();
                     if (pulseSensorType != null &&
                     dict_sensor_user.ContainsKey(pulseSensorType) &&
                     dict_sensor_user[pulseSensorType] >= 3)
                     {
-                        Console.WriteLine(" ניחשת את הסנסור הבעייתי יותר מדי! מגבירים את החולשה שלו!");
+                        Console.WriteLine("You guessed the problematic sensor too much! We're increasing its weakness!");
                         Create_agent_junior.GetSensorsDict()[pulseSensorType]++;
                         dict_sensor_user[pulseSensorType] = 0;
-                        Console.WriteLine("sima");
+                        Create_agent_junior.Instance_Sensor_basic.sub_Number_of_successful_guesses();
+                        Console.WriteLine($"{Create_agent_junior.Instance_Sensor_basic.Number_of_successful_guesses}/{start}");
                     }
                 } while (Initial_guess_total!=0);
-                
             }
         }
     }
